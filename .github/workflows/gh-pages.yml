@@ -29,7 +29,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist/icalcariam/browser/
+          path: src/dist/icalcariam/browser/
   
   deploy:
     # Add a dependency to the build job
