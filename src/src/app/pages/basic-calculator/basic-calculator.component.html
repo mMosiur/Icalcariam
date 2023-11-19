@@ -1,0 +1,21 @@
+<p>basic-calculator works!</p>
+
+<form>
+  <ul>
+    <li>InitialHappiness: <input type="number" name="InitialHappiness" [(ngModel)]="initialHappiness" /></li>
+    <li>CurrentPopulation: <input type="number" name="CurrentPopulation" [(ngModel)]="currentPopulation" /></li>
+    <li>TownCapacity: <input type="number" name="TownCapacity" [(ngModel)]="townCapacity" /></li>
+  </ul>
+
+  <p>Time before filled:</p>
+  <input type="text" name="TimeBeforeFilled" disabled readonly [ngModel]="timeBeforeFilledText"/>
+</form>
+
+<form>
+  <ul>
+    <li>Time: <input type="number" name="Time" [(ngModel)]="time"></li>
+  </ul>
+  <p>Population after time:</p>
+  <input type="text" name="PopulationAfterTime" disabled readonly [ngModel]="populationAfterTime"/>
+</form>
+
