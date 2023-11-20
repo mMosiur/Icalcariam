@@ -21,7 +21,7 @@ jobs:
       - name: Install 🔧
         run: npm ci
       - name: Build 🏗️
-        run: npm run build --omit=dev -- --base-href /icalcariam/
+        run: npm run build --omit=dev -- --base-href /Icalcariam/
       - name: Setup 404 page 😶‍🌫️
         run: cp ./dist/icalcariam/browser/index.html ./dist/icalcariam/browser/404.html
       
