@@ -1,11 +1,14 @@
-import { FormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ResearchInfoService} from "../../services/research-info.service";
+import {EconomyResearch, MilitaryResearch, ScienceResearch, SeafaringResearch} from "../../models/research";
+import {ResearchComponent} from "../../components/research/research.component";
 
 @Component({
   selector: 'app-basic-calculator',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ResearchComponent],
   templateUrl: './basic-calculator.component.html',
   styleUrl: './basic-calculator.component.css',
 })
@@ -63,7 +66,10 @@ export class BasicCalculatorComponent {
     return p0 + h0 * (1 - Math.exp(-this.time / 50));
   }
 
-  constructor() {
+  test() {
+  }
+
+  constructor(protected researchInfoService: ResearchInfoService) {
     this.initialHappiness = null;
     this.currentPopulation = null;
     this.townCapacity = null;
