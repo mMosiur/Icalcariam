@@ -1,0 +1,8 @@
+<form>
+  <h2>{{categoryName}}</h2>
+  <div *ngFor="let research of categoryResearches">
+    <input type="radio" name="{{categoryName}}Research" [value]="research" [(ngModel)]="selectedResearch" />
+    <label>{{ getResearchName(research) }}</label>
+  </div>
+  <input type="reset" value="Clear" [hidden]="!canClear" />
+</form>
