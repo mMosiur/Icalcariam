@@ -12,6 +12,7 @@ export class DetailedCityInfo implements CityInfo {
   museumLevel: number;
   culturalGoods: number;
   population: number;
+  townHallLevel: number;
   townCapacity: number;
   corruption: number;
 
@@ -31,6 +32,7 @@ export class DetailedCityInfo implements CityInfo {
     museumLevel: number,
     culturalGoods: number,
     population: number,
+    townHallLevel: number,
     townCapacity: number,
     corruption: number = 0,
   ) {
@@ -40,6 +42,7 @@ export class DetailedCityInfo implements CityInfo {
     this.museumLevel = museumLevel;
     this.culturalGoods = culturalGoods;
     this.population = population;
+    this.townHallLevel = townHallLevel;
     this.townCapacity = townCapacity;
     this.corruption = corruption;
   }

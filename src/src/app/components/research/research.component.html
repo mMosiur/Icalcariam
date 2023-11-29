@@ -1,0 +1,41 @@
+<p>research works!</p>
+
+<form>
+
+  <div>
+    <h2>Seafaring</h2>
+    <div *ngFor="let research of seafaringResearches">
+      <input type="radio" name="SeafaringResearch" [value]="research" [(ngModel)]="selectedSeafaringResearch" />
+      <label>{{ getSeafaringResearchName(research) }}</label>
+    </div>
+    <input type="reset" value="Clear" />
+  </div>
+
+  <div>
+    <h2>Economy</h2>
+    <div *ngFor="let research of economyResearches">
+      <input type="radio" name="EconomyResearch" [value]="research" [(ngModel)]="selectedEconomyResearch" />
+      <label>{{ getEconomyResearchName(research) }}</label>
+    </div>
+    <input type="reset" value="Clear" />
+  </div>
+
+  <div>
+    <h2>Science</h2>
+    <div *ngFor="let research of scienceResearches">
+      <input type="radio" name="ScienceResearch" [value]="research" [(ngModel)]="selectedScienceResearch" />
+      <label>{{ getScienceResearchName(research) }}</label>
+    </div>
+    <input type="reset" value="Clear" />
+  </div>
+
+  <div>
+    <h2>Military</h2>
+    <div *ngFor="let research of militaryResearches">
+      <input type="radio" name="MilitaryResearch" [value]="research" [(ngModel)]="selectedMilitaryResearch" />
+      <label>{{ getMilitaryResearchName(research) }}</label>
+    </div>
+  </div>
+
+</form>
+
