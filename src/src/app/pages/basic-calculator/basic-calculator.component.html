@@ -1,46 +1,37 @@
-<p>basic-calculator works!</p>
+<div class="container mt-4">
+  <h3>Basic Calculator</h3>
 
-<form>
-  <ul>
-    <li>InitialHappiness: <input type="number" name="InitialHappiness" [(ngModel)]="initialHappiness" /></li>
-    <li>CurrentPopulation: <input type="number" name="CurrentPopulation" [(ngModel)]="currentPopulation" /></li>
-    <li>TownCapacity: <input type="number" name="TownCapacity" [(ngModel)]="townCapacity" /></li>
-  </ul>
+  <form class="mt-4">
+    <div class="form-group">
+      <label for="InitialHappiness">Initial Happiness:</label>
+      <input type="number" class="form-control" id="InitialHappiness" name="InitialHappiness" [(ngModel)]="initialHappiness">
+    </div>
 
-  <p>Time before filled:</p>
-  <input type="text" name="TimeBeforeFilled" disabled readonly [ngModel]="timeBeforeFilledText"/>
-</form>
+    <div class="form-group">
+      <label for="CurrentPopulation">Current Population:</label>
+      <input type="number" class="form-control" id="CurrentPopulation" name="CurrentPopulation" [(ngModel)]="currentPopulation">
+    </div>
 
-<form>
-  <ul>
-    <li>Time: <input type="number" name="Time" [(ngModel)]="time"></li>
-  </ul>
-  <p>Population after time:</p>
-  <input type="text" name="PopulationAfterTime" disabled readonly [ngModel]="populationAfterTime"/>
-</form>
+    <div class="form-group">
+      <label for="TownCapacity">Town Capacity:</label>
+      <input type="number" class="form-control" id="TownCapacity" name="TownCapacity" [(ngModel)]="townCapacity">
+    </div>
 
-<button (click)="test()">Test</button>
+    <div class="form-group">
+      <label>Time before filled:</label>
+      <span>{{ timeBeforeFilledText }}</span>
+    </div>
+  </form>
 
-<app-research>
-</app-research>
+  <form class="mt-4">
+    <div class="form-group">
+      <label for="Time">Time:</label>
+      <input type="number" class="form-control" id="Time" name="Time" [(ngModel)]="time">
+    </div>
 
-<!--<form>-->
-<!--  <h1>Research</h1>-->
-<!--  <div>-->
-<!--    <label>Is <a href="https://ikariam.fandom.com/wiki/Research:Well_Digging">Well Digging</a> researched: </label>-->
-<!--    <input type="checkbox" name="IsWellDiggingResearched" [(ngModel)]="researchInfoService.isWellDiggingResearched" />-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <label>Is <a href="https://ikariam.fandom.com/wiki/Research:Holiday">Holiday</a> researched: </label>-->
-<!--    <input type="checkbox" name="IsHolidayResearched" [(ngModel)]="researchInfoService.isHolidayResearched" />-->
-<!--  </div>-->
-<!--  <div>-->
-<!--    <label>Is <a href="https://ikariam.fandom.com/wiki/Research:Utopia">Utopia</a> researched: </label>-->
-<!--    <input type="checkbox" name="IsUtopiaResearched" [(ngModel)]="researchInfoService.isUtopiaResearched" />-->
-<!--  </div>-->
-<!--  <div *ngIf="researchInfoService.isEconomicFuturesResearchAvailable">-->
-<!--    <label><a href="https://ikariam.fandom.com/wiki/Research:Economic_Future">Economic Futures</a> level: </label>-->
-<!--    <input type="number" name="EconomicFuturesLevel" [(ngModel)]="researchInfoService.economicFuturesResearchLevel" min="0" max="26" step="1" />-->
-<!--  </div>-->
-<!--</form>-->
-
+    <div class="form-group">
+      <label>Population after time:</label>
+      <span>{{ populationAfterTime }}</span>
+    </div>
+  </form>
+</div>

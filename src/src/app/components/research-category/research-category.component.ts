@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import {
   EconomyResearch,
@@ -101,28 +101,28 @@ export class ResearchCategoryComponent implements OnInit {
   }
 
   getSeafaringResearchName(research: SeafaringResearch | string): string {
-    if(typeof research === 'string') {
+    if (typeof research === 'string') {
       research = SeafaringResearch[research as keyof typeof SeafaringResearch];
     }
     return SeafaringResearch[research];
   }
 
   getEconomyResearchName(research: EconomyResearch | string): string {
-    if(typeof research === 'string') {
+    if (typeof research === 'string') {
       research = EconomyResearch[research as keyof typeof EconomyResearch];
     }
     return EconomyResearch[research];
   }
 
   getScienceResearchName(research: ScienceResearch | string): string {
-    if(typeof research === 'string') {
+    if (typeof research === 'string') {
       research = ScienceResearch[research as keyof typeof ScienceResearch];
     }
     return ScienceResearch[research];
   }
 
   getMilitaryResearchName(research: MilitaryResearch | string): string {
-    if(typeof research === 'string') {
+    if (typeof research === 'string') {
       research = MilitaryResearch[research as keyof typeof MilitaryResearch];
     }
     return MilitaryResearch[research];

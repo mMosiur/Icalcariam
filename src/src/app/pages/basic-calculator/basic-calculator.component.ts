@@ -2,7 +2,6 @@ import {FormsModule} from '@angular/forms';
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ResearchInfoService} from "../../services/research-info.service";
-import {EconomyResearch, MilitaryResearch, ScienceResearch, SeafaringResearch} from "../../models/research";
 import {ResearchComponent} from "../../components/research/research.component";
 
 @Component({
@@ -64,9 +63,6 @@ export class BasicCalculatorComponent {
     const p0 = this.currentPopulation;
     const h0 = this.initialHappiness;
     return p0 + h0 * (1 - Math.exp(-this.time / 50));
-  }
-
-  test() {
   }
 
   constructor(protected researchInfoService: ResearchInfoService) {

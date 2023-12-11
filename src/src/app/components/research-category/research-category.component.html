@@ -1,8 +1,8 @@
-<form>
-  <h2>{{categoryName}}</h2>
-  <div *ngFor="let research of categoryResearches">
-    <input type="radio" name="{{categoryName}}Research" [value]="research" [(ngModel)]="selectedResearch" />
-    <label>{{ getResearchName(research) }}</label>
+<form class="mt-4">
+  <h2>{{ categoryName }}</h2>
+  <div *ngFor="let research of categoryResearches" class="form-check">
+    <input type="radio" class="form-check-input" name="{{ categoryName }}Research" [value]="research" [(ngModel)]="selectedResearch">
+    <label class="form-check-label">{{ getResearchName(research) }}</label>
   </div>
-  <input type="reset" value="Clear" [hidden]="!canClear" />
+  <input type="reset" class="btn btn-secondary mt-2" value="Clear" [hidden]="!canClear">
 </form>
