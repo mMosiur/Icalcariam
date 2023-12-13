@@ -7,13 +7,15 @@ import {
   ResearchCategory,
   ScienceResearch,
   SeafaringResearch
-} from "../../models/research";
-import {ResearchInfoService} from "../../services/research-info.service";
+} from "../../../models/research";
+import {ResearchInfoService} from "../../../services/research-info.service";
+import {TranslateModule} from "@ngx-translate/core";
+
 
 @Component({
   selector: 'app-research-category',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './research-category.component.html',
   styleUrl: './research-category.component.css'
 })
@@ -83,6 +85,12 @@ export class ResearchCategoryComponent implements OnInit {
     if (this._selectedResearch === research) return;
     this._selectedResearch = research;
     this.researchInfoService.setResearchLevel(this.researchCategory, research ?? 0);
+  }
+
+  getTranslateKey(research: number | string): string {
+    const researchName = this.getResearchName(research) ?? research;
+    if (!researchName) return "";
+    return researchName.toUpperCase();
   }
 
   getResearchName(research: number | string): string {
