@@ -1,15 +1,17 @@
-import { FormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ResearchInfoService} from "../../services/research-info.service";
+import {ResearchComponent} from "../research/research.component";
 
 @Component({
-  selector: 'app-basic-calculator',
+  selector: 'app-happiness',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './basic-calculator.component.html',
-  styleUrl: './basic-calculator.component.css',
+  imports: [CommonModule, FormsModule, ResearchComponent],
+  templateUrl: './happiness.component.html',
+  styleUrl: './happiness.component.css',
 })
-export class BasicCalculatorComponent {
+export class HappinessComponent {
   initialHappiness: number | null;
   currentPopulation: number | null;
   townCapacity: number | null;
@@ -63,7 +65,7 @@ export class BasicCalculatorComponent {
     return p0 + h0 * (1 - Math.exp(-this.time / 50));
   }
 
-  constructor() {
+  constructor(protected researchInfoService: ResearchInfoService) {
     this.initialHappiness = null;
     this.currentPopulation = null;
     this.townCapacity = null;

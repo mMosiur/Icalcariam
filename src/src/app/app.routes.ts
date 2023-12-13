@@ -1,7 +1,9 @@
-import { Routes } from '@angular/router';
-import { BasicCalculatorComponent } from './pages/basic-calculator/basic-calculator.component';
+import {Routes} from '@angular/router';
+import {HappinessComponent} from "./components/happiness/happiness.component";
+import {ResearchComponent} from "./components/research/research.component";
 
 export const routes: Routes = [
-  { path: '', component: BasicCalculatorComponent },
+  {path: 'happiness', component: HappinessComponent},
+  {path: 'research', component: ResearchComponent},
+  {path: '**', redirectTo: '/happiness', pathMatch: 'full'}
 ];
-

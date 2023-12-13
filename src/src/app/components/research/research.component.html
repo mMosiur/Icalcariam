@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let researchCategory of researchCategories">
+      <button class="nav-link" (click)="setActiveTab(researchCategory)" [class.active]="selectedResearchCategory === researchCategory">{{ researchCategory }}</button>
+    </li>
+  </ul>
+  <div class="tab-content mt-2">
+    <div class="tab-pane" *ngFor="let researchCategory of researchCategories" [ngClass]="{ 'show active': selectedResearchCategory === researchCategory }">
+      <app-research-category [researchCategory]="researchCategory"></app-research-category>
+    </div>
+  </div>
+</div>
