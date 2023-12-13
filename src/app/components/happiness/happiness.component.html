@@ -1,19 +1,19 @@
 <div class="container mt-4">
-  <h3>Happiness</h3>
+  <h3>{{ 'HAPPINESS' | translate }}</h3>
 
   <form class="mt-4">
     <div class="form-group">
-      <label for="InitialHappiness">Initial Happiness:</label>
+      <label for="InitialHappiness">{{ 'HAPPINESS' | translate }}:</label>
       <input type="number" class="form-control" id="InitialHappiness" name="InitialHappiness" [(ngModel)]="initialHappiness">
     </div>
 
     <div class="form-group">
-      <label for="CurrentPopulation">Current Population:</label>
+      <label for="CurrentPopulation">{{ 'POPULATION' | translate }}:</label>
       <input type="number" class="form-control" id="CurrentPopulation" name="CurrentPopulation" [(ngModel)]="currentPopulation">
     </div>
 
     <div class="form-group">
-      <label for="TownCapacity">Town Capacity:</label>
+      <label for="TownCapacity">{{ 'TOWNCAPACITY' | translate }}:</label>
       <input type="number" class="form-control" id="TownCapacity" name="TownCapacity" [(ngModel)]="townCapacity">
     </div>
 

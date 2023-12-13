@@ -3,11 +3,12 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ResearchInfoService} from "../../services/research-info.service";
 import {ResearchComponent} from "../research/research.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-happiness',
   standalone: true,
-  imports: [CommonModule, FormsModule, ResearchComponent],
+  imports: [CommonModule, FormsModule, ResearchComponent, TranslateModule],
   templateUrl: './happiness.component.html',
   styleUrl: './happiness.component.css',
 })

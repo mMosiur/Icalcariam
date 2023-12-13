@@ -1,0 +1,14 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <label for="language-selector">{{ 'LANGUAGE' | translate }}</label>
+        <select id="language-selector" class="form-control" (change)="changeLanguage($event)">
+          <option *ngFor="let lang of languages" [value]="lang.Code"
+                  [selected]="lang.Code === currentLanguageCode">{{ lang.LongName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

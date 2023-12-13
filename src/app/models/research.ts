@@ -1,5 +1,3 @@
-import {EnumValue} from "@angular/compiler-cli/src/ngtsc/partial_evaluator";
-
 export interface ResearchState {
   get seafaring(): SeafaringResearch;
   get seafaringFuture(): number;
