@@ -24,8 +24,8 @@ export class ResearchComponent {
     ResearchCategory.Military,
   ];
 
-  getTranslateKey(s: string):string {
-    return s.toUpperCase();
+  getTranslateKey(s: string): string {
+    return 'RESEARCH.CATEGORIES.' + s.toUpperCase();
   }
 
   setActiveTab(researchCategory: ResearchCategory) {

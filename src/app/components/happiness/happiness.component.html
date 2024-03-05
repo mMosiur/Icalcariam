@@ -1,36 +1,36 @@
 <div class="container mt-4">
-  <h3>{{ 'HAPPINESS' | translate }}</h3>
+  <h3>{{ 'GENERAL.HAPPINESS' | translate }}</h3>
 
   <form class="mt-4">
     <div class="form-group">
-      <label for="InitialHappiness">{{ 'HAPPINESS' | translate }}:</label>
+      <label for="InitialHappiness">{{ 'GENERAL.HAPPINESS' | translate }}:</label>
       <input type="number" class="form-control" id="InitialHappiness" name="InitialHappiness" [(ngModel)]="initialHappiness">
     </div>
 
     <div class="form-group">
-      <label for="CurrentPopulation">{{ 'POPULATION' | translate }}:</label>
+      <label for="CurrentPopulation">{{ 'GENERAL.POPULATION' | translate }}:</label>
       <input type="number" class="form-control" id="CurrentPopulation" name="CurrentPopulation" [(ngModel)]="currentPopulation">
     </div>
 
     <div class="form-group">
-      <label for="TownCapacity">{{ 'TOWNCAPACITY' | translate }}:</label>
+      <label for="TownCapacity">{{ 'GENERAL.TOWN_CAPACITY' | translate }}:</label>
       <input type="number" class="form-control" id="TownCapacity" name="TownCapacity" [(ngModel)]="townCapacity">
     </div>
 
-    <div class="form-group">
-      <label>Time before filled:</label>
-      <span>{{ timeBeforeFilledText }}</span>
+    <div class="form-group" *ngIf="timeBeforeFilled !== null">
+      <label>{{ 'TABS.POPULATION.TIME_BEFORE_FILLED' | translate }}:</label>
+      <span>{{ timeBeforeFilledText | async }}</span>
     </div>
   </form>
 
   <form class="mt-4">
     <div class="form-group">
-      <label for="Time">Time:</label>
+      <label for="Time">{{ 'GENERAL.TIME' | translate }}:</label>
       <input type="number" class="form-control" id="Time" name="Time" [(ngModel)]="time">
     </div>
 
-    <div class="form-group">
-      <label>Population after time:</label>
+    <div class="form-group" *ngIf="populationAfterTime !== null">
+      <label>{{ 'TABS.POPULATION.POPULATION_AFTER_TIME' | translate }}:</label>
       <span>{{ populationAfterTime }}</span>
     </div>
   </form>
