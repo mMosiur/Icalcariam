@@ -73,6 +73,14 @@ export class ResearchCategoryComponent implements OnInit {
     this._selectedResearch = this.researchInfoService.getResearchLevel(ResearchCategory.Military);
   }
 
+  get researchCategoryTranslateKey(): string {
+    let researchCategory = this.researchCategory;
+    if (typeof researchCategory !== 'string') {
+      researchCategory = ResearchCategory[researchCategory];
+    }
+    return "RESEARCH.CATEGORIES." + researchCategory.toUpperCase();
+  }
+
   get categoryName() {
     return ResearchCategory[this.researchCategory];
   }
@@ -87,10 +95,16 @@ export class ResearchCategoryComponent implements OnInit {
     this.researchInfoService.setResearchLevel(this.researchCategory, research ?? 0);
   }
 
-  getTranslateKey(research: number | string): string {
+  getResearchTranslateKey(research: number | string): string {
     const researchName = this.getResearchName(research) ?? research;
     if (!researchName) return "";
-    return researchName.toUpperCase();
+    let researchCategory : string;
+    if (typeof this.researchCategory === 'string') {
+      researchCategory = this.researchCategory;
+    } else {
+      researchCategory = ResearchCategory[this.researchCategory as keyof typeof ResearchCategory];
+    }
+    return `RESEARCH.${researchCategory.toUpperCase()}.${researchName.toUpperCase()}`;
   }
 
   getResearchName(research: number | string): string {

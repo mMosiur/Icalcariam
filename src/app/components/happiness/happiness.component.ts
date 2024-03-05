@@ -3,7 +3,8 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ResearchInfoService} from "../../services/research-info.service";
 import {ResearchComponent} from "../research/research.component";
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {Observable, of, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-happiness',
@@ -22,7 +23,7 @@ export class HappinessComponent {
     if (this.initialHappiness === null || this.currentPopulation === null) {
       return null;
     }
-    return this.initialHappiness + this.currentPopulation - 1;
+    return this.initialHappiness + this.currentPopulation;
   }
 
   get timeBeforeFilled(): number | null {
@@ -36,21 +37,24 @@ export class HappinessComponent {
     const finalHappiness =
       this.initialHappiness + this.currentPopulation - this.townCapacity;
     if (finalHappiness > 0) {
-      return 50 * Math.log(this.initialHappiness / finalHappiness);
+      return Math.max(0, 50 * Math.log(this.initialHappiness / finalHappiness));
     } else {
       return Number.POSITIVE_INFINITY;
     }
   }
 
-  get timeBeforeFilledText(): string {
-    const tbf = this.timeBeforeFilled;
-    if (tbf === null) {
-      return 'N/A';
-    } else if (tbf === Number.POSITIVE_INFINITY) {
-      return `Never (max population ${this.maxPopulation})`;
-    } else {
-      return tbf.toFixed(2);
-    }
+  get timeBeforeFilledText(): Observable<string> {
+    return of(this.timeBeforeFilled).pipe(
+      switchMap(tbf => {
+        if (tbf === null) {
+          return of('—');
+        } else if (tbf === Number.POSITIVE_INFINITY) {
+          return this.translateService.get('TABS.POPULATION.WILL_NEVER_FILL', {maxPopulation: this.maxPopulation});
+        } else {
+          return of(tbf.toFixed(2));
+        }
+      })
+    );
   }
 
   get populationAfterTime(): number | null {
@@ -66,7 +70,7 @@ export class HappinessComponent {
     return p0 + h0 * (1 - Math.exp(-this.time / 50));
   }
 
-  constructor(protected researchInfoService: ResearchInfoService) {
+  constructor(protected researchInfoService: ResearchInfoService, private translateService: TranslateService) {
     this.initialHappiness = null;
     this.currentPopulation = null;
     this.townCapacity = null;
